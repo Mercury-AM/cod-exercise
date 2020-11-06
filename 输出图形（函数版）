@@ -1,0 +1,47 @@
+//偶数时输出正等腰三角形，奇数时输出倒三角
+#include<stdio.h>
+void print_graphic_I(int num);/*函数声明*/
+void print_graphic_II(int num);
+int main()
+{
+    int num;
+    while(1)
+    {
+        scanf("%d", &num);
+        if(num==0)
+            break;
+       else if(num%2==0)
+           print_graphic_I(num);
+       else if(num%2!=0)
+           print_graphic_II(num);
+    }
+
+}
+
+void print_graphic_I(int num)
+{
+    int i,j;
+    for(i=1;i<=num;i++)
+    {
+        for(j=1;j<=num-i;j++)
+            printf(" ");
+        for(j=1;j<=2*i-1;j++)
+            printf("+");
+        printf("\n");
+    }
+
+}
+
+void print_graphic_II(int num)
+{
+    int i,j;
+    for(i=1;i<=num;i++)
+    {
+        for(j=1;j<=i-1;j++)
+            printf(" ");
+        for(j=1;j<=2*num-2*i+1;j++)
+            printf("+");
+        printf("\n");
+    }
+
+}
