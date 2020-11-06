@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main()
+{
+    int n,x,max,min,i=1;
+    scanf("%d",&n);//输入数字的个数；
+    while(i<=n)
+    {
+        scanf("%d",&x);//循环输入数字；
+        if(i==1)
+            {
+            max=x;
+            min=x;
+            }
+        else
+            {
+                if(max<x)
+                {
+                    max=x;
+                }
+                if(min>x)
+                {
+                    min=x;
+                }
+            }
+        i++;
+    }
+    printf("The maximum number is %d.\nThe minimum number is %d.\n",max,min);
+}
