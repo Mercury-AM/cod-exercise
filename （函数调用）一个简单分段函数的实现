@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<math.h>//函数声明
+#include<stdlib.h>
+double func(double x);
+int output(int n, double x);
+int main()
+{
+    int i, cases;
+    double x;
+    scanf("%d", &cases);
+    for(i = 1; i <= cases; i++)
+    {
+        scanf("%lf", &x);
+        output(i, func(x));
+    }
+    return 0;
+}
+
+double func(double x)//分段函数部分
+{
+    if(x<0)
+    {
+        x=fabs(x);
+        return x;
+    }
+    else if(x>=0&&x<1)
+    {
+        x=sin(2*x);
+        return x;
+    }
+    else if(x>=1&&x<5)
+    {
+        x=sqrt(pow(x,3)+x);
+        return x;
+    }
+    else
+    {
+        x=x*2+10;
+        return x;
+    }
+}
+
+int output(int n, double x)//输出部分
+{
+    printf("case %d:y=%.6g.\n",n,x);
+    return 0;
+}
