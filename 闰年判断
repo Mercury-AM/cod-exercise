@@ -1,0 +1,20 @@
+#include<stdio.h>
+int main()
+{
+    int a;
+    scanf("%d",&a);
+    if(a%100==0)//判断是否为世纪年
+    {
+        if(a%400==0)
+            printf("Yes\n");
+        else
+            printf("No\n");
+    }
+    else//一般年
+    {
+        if(a%4==0&&a%100!=0)
+            printf("Yes\n");
+        else
+            printf("No\n");
+    }
+}
