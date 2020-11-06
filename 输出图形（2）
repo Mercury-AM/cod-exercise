@@ -1,0 +1,15 @@
+#include<stdio.h>
+//输出图形（金字塔型）
+int main()
+{
+    int n,i,j;
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)//行数
+    {
+        for(j=1;j<=n-i;j++)//控制每列第一个*的位置
+            printf(" ");
+        for(j=1;j<=2*i-1;j++)//每列*的个数
+            printf("*");
+        printf("\n");
+    }
+}
