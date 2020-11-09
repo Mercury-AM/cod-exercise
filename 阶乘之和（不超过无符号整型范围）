@@ -1,0 +1,29 @@
+#include<stdio.h>
+unsigned int factor(int m)
+{
+    unsigned int result;
+    if(m==0||m==1)
+        result=1;
+    else
+        result=m*factor(m-1);
+    return result;
+}
+
+int main()
+{
+    int k,i;
+    unsigned int s=0;
+    scanf("%d",&k);
+    if(k<=12)
+    {
+        for(i=1;i<=k;i++)
+            s=(unsigned int)(factor(i)+s);
+        printf("%u\n",s);
+    }
+    else
+    {
+        printf("overflow\n");
+             return 0;
+    }
+
+}
