@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main()
+{
+    int sum1=0,a[10],b=0,i;
+    double sum2;
+    for(i=0;i<10;i++)//数组从0开始
+    {
+        scanf("%d",&a[i]);
+        sum1+=a[i];
+    }
+    sum2=sum1/10;
+    for(i=0;i<10;i++)
+    {
+        if(a[i]>sum2)
+            b++;
+    }
+    printf("%d",b);
+}
