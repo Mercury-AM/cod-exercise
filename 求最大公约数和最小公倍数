@@ -1,0 +1,15 @@
+#include<stdio.h>
+int gcd(int a,int b)//求最大公约数
+{
+    if(a%b==0)
+        return b;
+    else
+        return gcd(b,a%b);
+}
+int main()
+{
+    int a,b,m;
+    scanf("%d %d",&a,&b);
+    m=gcd(a,b);
+    printf("%d %d\n",m,a*b/m);//最小公倍数=两数之积除以其最大公约数
+}
