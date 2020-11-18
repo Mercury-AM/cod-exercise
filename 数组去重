@@ -1,0 +1,24 @@
+#include<stdio.h>
+//数组去重
+int main()
+{
+    int m,n,a[1001]={0},i,j,b;
+    scanf("%d",&m);
+    for(i=1;i<=m;i++)
+    {
+        scanf("%d",&n);
+        for(j=0;j<n;j++)
+        {
+            scanf("%d",&a[j]);
+        }
+        printf("%d",a[0]);
+        for(j=0;j<n-1;j++)
+        {
+            if(a[j]<a[j+1])
+            {
+                printf(" %d",a[j+1]);
+            }
+        }
+        printf("\n");
+    }
+}
