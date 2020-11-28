@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<ctype.h>
+#include<string.h>
+int main()
+{
+    char s[110];
+    int i,l,j,b;
+    while(1)
+    {
+        gets(s);
+        l=strlen(s);
+        for(i=l-1;1;i--)//去掉右边的空白符
+        {
+            if(!isspace(s[i]))//判断空白符
+            {
+                s[i+1]='\0';
+                break;//非空白符退出
+            }
+        }
+        for(j=0;j<l;j++)找到左边的第一个非空白符的位置
+        {
+            if(!isspace(s[j]))
+            {
+                b=j;
+                break;
+            }
+        }
+        puts(s+b);
+        if(strcmp(&s[b],"END")==0)//输入END时停止
+            break;
+    }
+}
