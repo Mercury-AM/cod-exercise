@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<string.h>
+int s[10000]={0};
+int main()
+{
+    int n,i,j,flag;
+    scanf("%d",&n);
+    for(i=2;i<=n;i++)
+        {
+            flag=0;
+            if(s[i]==1)
+                continue;
+            else
+                {
+                    for(j=2;j<=i;j++)
+                    {
+                        if(i%j==0&&j!=i)//判断是否为素数
+                            {
+                             flag=1;
+                             break;
+                            }
+                    }
+                    if(flag==1)
+                    {
+                        for(j=1;i*j<=n;j++)//筛法求素数：将所有非素数的倍数去掉
+                        {
+                            s[i*j]=1;
+                        }
+
+                    }
+                }
+        }
+    for(i=2;i<=n;i++)
+        if(s[i]==0)//数组为0表示该下标值为素数，为一则为非素数
+            printf("%d\n",i);
+}
