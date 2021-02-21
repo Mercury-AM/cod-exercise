@@ -1,0 +1,45 @@
+/*输入测试样例数N；输入数字，从1开始，判断每个数字出现次数。例如13，‘1’出现1次，‘3’出现一次。每个输出间以空格隔开；
+
+Sample Input
+2
+3
+13
+Sample Output
+0 1 1 1 0 0 0 0 0 0
+1 6 2 2 1 1 1 1 1 1
+*/
+
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+    int i,j,n,a;
+    int s[10]={0};
+    scanf("%d",&n);
+    while(n--)//n减为0时自动退出循环
+    {
+        memset(s,0,sizeof(s));//清空数组；
+        scanf("%d",&a);
+        for(i=1;i<=a;i++)
+        {
+            j=i;
+            while(j)
+            {
+                s[j%10]++;//记录数字的每一位出现的次数，从个位开始
+                j/=10;//进位
+            }
+        }
+        for(i=0;i<10;i++)
+            {
+                if(i==0)
+                    printf("%d",s[i]);
+                else
+                    printf(" %d",s[i]);
+            }
+        printf("\n");
+    }
+    return 0;
+}
+
+
