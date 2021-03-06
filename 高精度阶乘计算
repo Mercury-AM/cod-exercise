@@ -1,0 +1,39 @@
+//思想：　n!可能很大，而计算机能表示的整数范围有限，需要使用高精度计算的方法。使用一个数组A来表示一个大整数a，A[0]表示a的个位，A[1]表示a的十位，依次类推。
+　　将a乘以一个整数k变为将数组A的每一个元素都乘以k。首先将a设为1，然后乘2，乘3，当乘到n时，即得到了n!的值。
+
+#include<stdio.h>
+int a[10000000]={0};
+int main()
+{
+    int n,i,j,wei=0;
+    a[0]=1;
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        for(j=0;j<=wei;j++)
+            a[j]=a[j]*i;
+        for(j=0;j<=wei;j++)
+        {
+            if(a[j]>=10)//处理进位
+            {
+                a[j+1]+=a[j]/10;
+                a[j]=a[j]%10;
+                wei++;
+            }
+        }
+    }
+    for(i=wei;i>=0;i--)//防止出现首元素为0的情况
+    {
+        if(a[i]==0)
+            continue;
+        else
+        {
+            wei=i;
+            break;
+        }
+    }
+    for(i=wei;i>=0;i--)
+        printf("%d",a[i]);
+    printf("\n");
+    return 0;
+}
